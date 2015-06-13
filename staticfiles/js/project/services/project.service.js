@@ -39,7 +39,7 @@
     * @memberOf crowdsource.project.services.Project
     */
     function addProject(project) {
-      return $http({
+      var settings = {
         url: '/api/project/',
         method: 'POST',
         data: {
@@ -50,7 +50,8 @@
           keywords: project.keywords,
           categories: project.categories
         }
-      });
+      };
+      return HttpService.doRequest(settings);
     }
 
     function toggle(item) {
