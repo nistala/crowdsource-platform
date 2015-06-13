@@ -38,8 +38,8 @@
     * @returns {Promise}
     * @memberOf crowdsource.project.services.Project
     */
-    function addProject(name, startDate, endDate, description) {
-      var settings = {
+    function addProject(project) {
+      return $http({
         url: '/api/project/',
         method: 'POST',
         data: {
@@ -50,9 +50,9 @@
           keywords: project.keywords,
           categories: project.categories
         }
-      };
-      return HttpService.doRequest(settings);
-    }            
+      });
+    }
+
     function toggle(item) {
           var idx = selectedCategories.indexOf(item);
           if (idx > -1) selectedCategories.splice(idx, 1);
